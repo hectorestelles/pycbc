@@ -193,6 +193,15 @@ eccentricity = Parameter("eccentricity",
                 dtype=float, default=0., label=r"$e$",
                 description="Eccentricity.")
 
+# Lensing parameters
+
+lensmass = Parameter("lensmass",
+                     dtype=float, default=1000., label=r"$ML$",
+                     description="Mass of the lens")
+ylens = Parameter("ylens",
+                     dtype=float, default=0.1, label=r"$yL$",
+                     description="scaled source position (lensing)")
+
 # derived parameters (these are not used for waveform generation) for masses
 mchirp = Parameter("mchirp",
                 dtype=float, label=r"$\mathcal{M}~(\mathrm{M}_\odot)$",
@@ -500,7 +509,7 @@ common_gen_equal_sampled_params = ParameterList([f_lower]) + \
 
 # the following are parameters that can be used to generate an FD waveform
 fd_waveform_params = cbc_rframe_params + ParameterList([delta_f]) + \
-    common_gen_equal_sampled_params + ParameterList([f_final, f_final_func])
+    common_gen_equal_sampled_params + ParameterList([f_final, f_final_func])+ ParameterList([lensmass,ylens])
 
 # the following are parameters that can be used to generate a TD waveform
 td_waveform_params = cbc_rframe_params + ParameterList([delta_t]) + \
