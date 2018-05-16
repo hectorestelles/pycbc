@@ -158,6 +158,13 @@ parser.add_argument('--waveform-low-frequency-cutoff', type=float,
                     required=True,
                     help='Frequency to begin generating the waveform in Hz.')
 
+# Lensing parameters
+
+parser.add_argument('--lensmass', type=float, default=0.0,
+                    help='(optional) Mass of the lens.')
+parser.add_argument('--ylens', type=float, default=1.0,
+                    help='(optional) scaled source position.')
+
 # waveform spin parameter options
 parser.add_argument('--spin1z', type=float, default=0.0,
                     help='(optional) Spin in z direction for mass1.')
@@ -325,6 +332,8 @@ sim.spin1x = opts.spin1x
 sim.spin2z = opts.spin2z
 sim.spin2y = opts.spin2y
 sim.spin2x = opts.spin2x
+sim.lensmass = opts.lensmass
+sim.ylens = opts.ylens
 if opts.lambda1 is not None:
     sim.lambda1 = opts.lambda1
 if opts.lambda2 is not None:
@@ -364,6 +373,8 @@ sngl.spin1x = opts.spin1x
 sngl.spin2z = opts.spin2z
 sngl.spin2y = opts.spin2y
 sngl.spin2x = opts.spin2x
+sngl.lensmass = opts.lensmass
+sngl.ylens = opts.ylens
 
 # generate waveform
 logging.info('Generating waveform at %.3fMpc beginning at %.3fHz for '
