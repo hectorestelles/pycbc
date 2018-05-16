@@ -146,7 +146,7 @@ def _lalsim_td_waveform(**p):
                float(p['inclination']), float(p['coa_phase']),
                float(p['long_asc_nodes']), float(p['eccentricity']), float(p['mean_per_ano']),
                float(p['delta_t']), float(p['f_lower']), float(p['f_ref']),
-               lal_pars,
+               lal_pars, float(p['lensmass']), float(p['ylens']),
                _lalsim_enum[p['approximant']])
     except RuntimeError:
         if not fail_tolerant_waveform_generation:
@@ -205,7 +205,7 @@ def _lalsim_fd_waveform(**p):
                float(p['inclination']), float(p['coa_phase']),
                float(p['long_asc_nodes']), float(p['eccentricity']), float(p['mean_per_ano']),
                p['delta_f'], float(p['f_lower']), float(p['f_final']), float(p['f_ref']),
-               lal_pars,
+               lal_pars, float(p['lensmass']), float(p['ylens']),
                _lalsim_enum[p['approximant']])
 
     hp = FrequencySeries(hp1.data.data[:], delta_f=hp1.deltaF,
