@@ -1874,6 +1874,8 @@ class SnglInspiralTable(table.Table):
 		"spin2x": "real_4",
 		"spin2y": "real_4",
 		"spin2z": "real_4",
+		"lensmass": "real_4",
+        	"ylens": "real_4",
 		"event_id": "ilwd:char"
 	}
 	constraints = "PRIMARY KEY (event_id)"
@@ -3037,6 +3039,8 @@ class SimInspiralTable(table.Table):
 		"spin2x": "real_4",
 		"spin2y": "real_4",
 		"spin2z": "real_4",
+		"lensmass": "real_4",
+        	"ylens": "real_4",
 		"theta0": "real_4",
 		"phi0": "real_4",
 		"f_lower": "real_4",
